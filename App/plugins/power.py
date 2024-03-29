@@ -1,4 +1,4 @@
-from ..strategies.base_strategy import OperationStrategy
+from ..stratagies.base_stratagy import OperationStrategy
 
 class Power(OperationStrategy):
     def execute(self, *operands):
@@ -6,3 +6,4 @@ class Power(OperationStrategy):
             return "Error: power operation requires exactly two operands."
         base, exponent = operands
         return base ** exponent
+

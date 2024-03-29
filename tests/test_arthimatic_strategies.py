@@ -1,5 +1,4 @@
-import pytest
-from ..App.strategies.arithmetic_strategies import AddOperationStrategy, DivideOperationStrategy, MultiplyOperationStrategy, SubtractOperationStrategy
+from ..App.stratagies.arithmetic_stratagies import AddOperationStrategy, DivideOperationStrategy, MultiplyOperationStrategy, SubtractOperationStrategy
 
 def test_add_operation():
     strategy = AddOperationStrategy()
@@ -21,4 +20,3 @@ def divide_by_zero():
     strategy = DivideOperationStrategy()
     with pytest.raises(ZeroDivisionError):
         strategy.execute(6, 0)
-

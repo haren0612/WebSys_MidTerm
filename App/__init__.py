@@ -3,8 +3,9 @@ import logging
 import importlib
 from App.CalculatorContext import CalculatorContext
 from App.HistoryManager import HistoryManager
-from App.strategies.base_strategy import OperationStrategy
-from .strategies.arithmetic_strategies import AddOperationStrategy, SubtractOperationStrategy, MultiplyOperationStrategy, DivideOperationStrategy
+from App.stratagies.statistical_stratagies import MeanOperationStrategy, MedianOperationStrategy, StdDevOperationStrategy
+from App.stratagies.arithmetic_stratagies import AddOperationStrategy, SubtractOperationStrategy, MultiplyOperationStrategy, DivideOperationStrategy
+from .utils.plugin_loader import load_plugins
 
 class CalculatorApp:
     def __init__(self):
@@ -15,34 +16,11 @@ class CalculatorApp:
             "subtract": SubtractOperationStrategy(),
             "multiply": MultiplyOperationStrategy(),
             "divide": DivideOperationStrategy(),
+            "mean": MeanOperationStrategy(),  # Add the mean strategy
+            "median": MedianOperationStrategy(),  # Add the median strategy
+            "stddev": StdDevOperationStrategy(),  # Add the standard deviation strategy
         }
-        self.strategies.update(self.load_plugins())
-
-    def load_plugins(self):
-        plugins = {}
-        plugins_dir = os.path.join(os.path.dirname(__file__), 'plugins')
-        if not os.path.exists(plugins_dir):
-            self.logger.warning("Plugins directory does not exist.")
-            return plugins
-
-        for module in os.listdir(plugins_dir):
-            if module == '__init__.py' or module[-3:] != '.py':
-                continue
-            module_name = module[:-3]
-            try:
-                module_path = f'.plugins.{module_name}'
-                plugin_module = importlib.import_module(module_path, package='App')
-                for item in dir(plugin_module):
-                    obj = getattr(plugin_module, item)
-                    if isinstance(obj, type) and issubclass(obj, OperationStrategy) and obj is not OperationStrategy:
-                        plugin_name = obj.__name__
-                        plugins[plugin_name.lower()] = obj()
-                        self.logger.info(f"Loaded plugin: {plugin_name}")
-            except Exception as e:
-                self.logger.error(f"Failed to load plugin {module_name}: {e}")
-
-        return plugins
-
+        self.strategies.update(load_plugins())
 
 
     def display_menu(self):
@@ -82,3 +60,4 @@ class CalculatorApp:
             except Exception as e:
                 self.logger.error(f"An error occurred: {e}")
                 print("An error occurred. Please try again.")
+

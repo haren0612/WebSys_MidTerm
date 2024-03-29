@@ -1,4 +1,4 @@
-from ..strategies.base_strategy import OperationStrategy
+from ..stratagies.base_stratagy import OperationStrategy
 from math import log
 
 class Log(OperationStrategy):

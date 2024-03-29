@@ -2,6 +2,7 @@ import pandas as pd
 import os
 from ..utils.config import HISTORY_SAVE_PATH
 
+
 class HistoryManager:
     def __init__(self, filename=HISTORY_SAVE_PATH, directory='data'):
         """
@@ -17,7 +18,7 @@ class HistoryManager:
         self.directory = directory
         self.filename = filename
         self.filepath = os.path.join(self.directory, self.filename)
-        
+
         # Ensure the directory exists
         os.makedirs(self.directory, exist_ok=True)
 
@@ -27,7 +28,8 @@ class HistoryManager:
             self.history_df = pd.read_csv(self.filepath)
         else:
             # Initialize an empty DataFrame if the file does not exist
-            self.history_df = pd.DataFrame(columns=['Operation', 'Operands', 'Result'])
+            self.history_df = pd.DataFrame(
+                columns=['Operation', 'Operands', 'Result'])
 
     def add_entry(self, operation, operands, result):
         """
@@ -43,9 +45,11 @@ class HistoryManager:
         """
         new_entry = pd.DataFrame([[operation, operands, result]],
                                  columns=self.history_df.columns)
-        # Prepare for concatenation by ensuring no all-NA columns; this step may vary based on your needs
+        # Prepare for concatenation by ensuring no all-NA columns; this step
+        # may vary based on your needs
         new_entry.dropna(axis=1, how='all', inplace=True)
-        self.history_df = pd.concat([self.history_df, new_entry], ignore_index=True).dropna(axis=1, how='all')
+        self.history_df = pd.concat(
+            [self.history_df, new_entry], ignore_index=True).dropna(axis=1, how='all')
         self.save_history()
 
     def save_history(self):
@@ -76,7 +80,8 @@ class HistoryManager:
         """
             Clear the in-memory history.
         """
-        self.history_df = pd.DataFrame(columns=['Operation', 'Operands', 'Result'])
+        self.history_df = pd.DataFrame(
+            columns=['Operation', 'Operands', 'Result'])
         self.save_history()
         print("History cleared.")
 

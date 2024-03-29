@@ -4,3 +4,7 @@ class OperationStrategy(ABC):
     @abstractmethod
     def execute(self, *operands):
         pass
+
+    def validate_operands(self, *operands):
+        if not all(isinstance(op, (int, float)) for op in operands):
+            raise ValueError("All operands must be numeric.")

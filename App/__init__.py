@@ -4,7 +4,7 @@ import importlib
 from App.CalculatorContext import CalculatorContext
 from App.HistoryManager import HistoryManager
 from App.stratagies.statistical_stratagies import MeanOperationStrategy, MedianOperationStrategy, StdDevOperationStrategy
-from App.stratagies.arithmetic_stratagies import AddOperationStrategy, SubtractOperationStrategy, MultiplyOperationStrategy, DivideOperationStrategy
+from .stratagies.arithmetic_stratagies import AddOperationStrategy, SubtractOperationStrategy, MultiplyOperationStrategy, DivideOperationStrategy
 from .utils.plugin_loader import load_plugins
 
 class CalculatorApp:
@@ -60,4 +60,3 @@ class CalculatorApp:
             except Exception as e:
                 self.logger.error(f"An error occurred: {e}")
                 print("An error occurred. Please try again.")
-

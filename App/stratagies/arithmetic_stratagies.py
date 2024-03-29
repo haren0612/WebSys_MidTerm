@@ -19,10 +19,7 @@ class MultiplyOperationStrategy(OperationStrategy):
         return result
 
 class DivideOperationStrategy(OperationStrategy):
-    def execute(self, *operands):
-        if len(operands) == 1:
-            return 1 / operands[0]
-        else:
-            if operands[1] == 0:
-                raise ZeroDivisionError
-            return operands[0] / operands[1]
+    def execute(self, operand1, operand2):
+        if operand2 == 0:
+            raise ValueError("Cannot divide by zero.")
+        return operand1 / operand2

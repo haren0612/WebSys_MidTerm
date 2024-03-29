@@ -42,33 +42,36 @@ class CalculatorApp:
                     self.logger.info("Calculator app terminated.")
                     break
                 elif user_input == "history":
-                    self.history_manager.show_history()
+                    self.history_manager.print_history()
                 elif user_input == "help":
                     self.display_menu()
                 else:
                     parts = user_input.split()
                     command, operands_str = parts[0], parts[1:]
-                    
+
                     if command not in self.strategies:
                         print("Unknown command. Type 'help' to see available commands.")
                         continue
-                    
+
                     try:
                         operands = list(map(float, operands_str))
                     except ValueError:
                         print("Error: All operands must be numeric.")
                         continue
-                    
+
+                    # Utilizing the strategy context for calculation
                     calculator = CalculatorContext(self.strategies[command], self.history_manager)
                     result = calculator.execute_operation(*operands)
-                    print(f"Result: {result}")
-                    
+
+                    # Log the operation and its result in history
+                    # self.history_manager.add_entry(command, operands, result)
+                    # self.history_manager.save_history()  # Save history after each operation
+
+                    print(result)
+
             except ValueError as ve:
-                # Specific known errors, e.g., "Cannot divide by zero."
                 self.logger.warning(f"Operation warning: {ve}")
                 print(f"Warning: {ve}")
             except Exception as e:
-                # Catch-all for unexpected errors
                 self.logger.error(f"Unexpected error occurred: {e}", exc_info=True)
                 print("An unexpected error occurred. Please try again.")
-

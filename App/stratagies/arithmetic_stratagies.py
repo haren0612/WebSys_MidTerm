@@ -32,5 +32,6 @@ class Division(OperationStrategy):
         self.validate_operands(*operands)
         operand1, operand2 = operands
         if operand2 == 0:
-            raise ValueError("Cannot divide by zero.")
+            # raise ValueError("Cannot divide by zero.")
+            raise ZeroDivisionError("Cannot divide by zero.")
         return operand1 / operand2

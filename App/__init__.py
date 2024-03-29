@@ -4,11 +4,15 @@ from App.HistoryManager import HistoryManager
 from App.stratagies.statistical_stratagies import MeanOperation, MedianOperation, StdDevOperation
 from .stratagies.arithmetic_stratagies import Addition, Subtraction, Multiplication, Division
 from .utils.plugin_loader import load_plugins
+from .utils.config import ENABLE_HISTORY_FEATURE
 
 class CalculatorApp:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
-        self.history_manager = HistoryManager()
+        if ENABLE_HISTORY_FEATURE:
+            self.history_manager = HistoryManager()
+        else:
+            self.history_manager = None
         self.strategies = {
             "add": Addition(),
             "subtract": Subtraction(),
@@ -20,16 +24,17 @@ class CalculatorApp:
         }
         self.strategies.update(load_plugins())
 
-
     def display_menu(self):
         print("\nAvailable Commands:")
         for command in self.strategies.keys():
             print(f" - {command}")
-        print(" - history: View calculation history")
-        print(" - quit: Exit the calculator")
-        print(" - help: Show this menu again\n")
+        if ENABLE_HISTORY_FEATURE:
+            print(" - view history: View calculation history")
+            print(" - clear history: Clear the calculation history")
+            print(" - delete history: Delete the calculation history CSV file.")
+        print(" - help: Show this menu again")
+        print(" - quit: Exit the calculator\n")
         print("Enter 'command operands' (e.g., 'add 1 2') to perform a calculation, or use one of the above commands.")
-
 
     def run(self):
         print("Welcome to the Advanced Calculator")
@@ -37,12 +42,25 @@ class CalculatorApp:
 
         while True:
             try:
-                user_input = input("calc> ").strip().lower()
+                user_input = input("input>>> ").strip().lower()
                 if user_input == "quit":
                     self.logger.info("Calculator app terminated.")
                     break
-                elif user_input == "history":
-                    self.history_manager.print_history()
+                elif user_input == "view history":
+                    if ENABLE_HISTORY_FEATURE:
+                        self.history_manager.print_history()
+                    else:
+                        print("History feature is disabled.")
+                elif user_input == "clear history":
+                    if ENABLE_HISTORY_FEATURE:
+                        self.history_manager.clear_history()
+                    else:
+                        print("History feature is disabled.")
+                elif user_input == "delete history":
+                    if ENABLE_HISTORY_FEATURE:
+                        self.history_manager.delete_history_file()
+                    else:
+                        print("History feature is disabled.")
                 elif user_input == "help":
                     self.display_menu()
                 else:
@@ -59,15 +77,9 @@ class CalculatorApp:
                         print("Error: All operands must be numeric.")
                         continue
 
-                    # Utilizing the strategy context for calculation
                     calculator = CalculatorContext(self.strategies[command], self.history_manager)
                     result = calculator.execute_operation(*operands)
-
-                    # Log the operation and its result in history
-                    # self.history_manager.add_entry(command, operands, result)
-                    # self.history_manager.save_history()  # Save history after each operation
-
-                    print(result)
+                    print(f"Result -> {result}")
 
             except ValueError as ve:
                 self.logger.warning(f"Operation warning: {ve}")

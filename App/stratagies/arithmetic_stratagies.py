@@ -1,15 +1,15 @@
-from App.utils.log_wrapper import log_operation
+from App.utils.wrapper import wrapper
 from .base_strategy import OperationStrategy
 
 
 class Addition(OperationStrategy):
-    @log_operation
+    @wrapper
     def execute(self, *operands):
         self.validate_operands(*operands)
         return sum(operands)
     
 class Subtraction(OperationStrategy):
-    @log_operation
+    @wrapper
     def execute(self, *operands):
         self.validate_operands(*operands)
         result = operands[0]
@@ -18,7 +18,7 @@ class Subtraction(OperationStrategy):
         return result
     
 class Multiplication(OperationStrategy):
-    @log_operation
+    @wrapper
     def execute(self, *operands):
         self.validate_operands(*operands)
         result = 1
@@ -27,11 +27,10 @@ class Multiplication(OperationStrategy):
         return result
 
 class Division(OperationStrategy):
-    @log_operation
+    @wrapper
     def execute(self, *operands):
         self.validate_operands(*operands)
         operand1, operand2 = operands
         if operand2 == 0:
-            # raise ValueError("Cannot divide by zero.")
             raise ZeroDivisionError("Cannot divide by zero.")
         return operand1 / operand2

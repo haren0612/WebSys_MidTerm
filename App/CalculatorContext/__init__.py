@@ -1,3 +1,7 @@
+from App.utils import logging
+from ..utils.config import ENABLE_HISTORY_FEATURE
+
+
 class CalculatorContext:
     def __init__(self, strategy, history_manager):
         self._strategy = strategy
@@ -15,9 +19,11 @@ class CalculatorContext:
         
         # Add an entry to the history log
         # Adjusted to match the updated add_entry method signature
-        self.history_manager.add_entry(operation_name, operands_str, result)
+        if self.history_manager is not None:
+            self.history_manager.add_entry(operation_name, operands, result)
         
         # Optionally, if immediate saving to CSV is desired
         # self.history_manager.save_history()
         
         return result
+

@@ -1,9 +1,8 @@
-import logging
-
 from App import CalculatorApp
+from App.utils.logging import setup_logging
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
+    setup_logging()
     app = CalculatorApp()
     app.run()

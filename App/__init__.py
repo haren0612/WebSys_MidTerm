@@ -1,10 +1,8 @@
-import os
 import logging
-import importlib
 from App.CalculatorContext import CalculatorContext
 from App.HistoryManager import HistoryManager
-from App.stratagies.statistical_stratagies import MeanOperationStrategy, MedianOperationStrategy, StdDevOperationStrategy
-from .stratagies.arithmetic_stratagies import AddOperationStrategy, SubtractOperationStrategy, MultiplyOperationStrategy, DivideOperationStrategy
+from App.stratagies.statistical_stratagies import MeanOperation, MedianOperation, StdDevOperation
+from .stratagies.arithmetic_stratagies import Addition, Subtraction, Multiplication, Division
 from .utils.plugin_loader import load_plugins
 
 class CalculatorApp:
@@ -12,13 +10,13 @@ class CalculatorApp:
         self.logger = logging.getLogger(__name__)
         self.history_manager = HistoryManager()
         self.strategies = {
-            "add": AddOperationStrategy(),
-            "subtract": SubtractOperationStrategy(),
-            "multiply": MultiplyOperationStrategy(),
-            "divide": DivideOperationStrategy(),
-            "mean": MeanOperationStrategy(),  # Add the mean strategy
-            "median": MedianOperationStrategy(),  # Add the median strategy
-            "stddev": StdDevOperationStrategy(),  # Add the standard deviation strategy
+            "add": Addition(),
+            "subtract": Subtraction(),
+            "multiply": Multiplication(),
+            "divide": Division(),
+            "mean": MeanOperation(),
+            "median": MedianOperation(),
+            "stddev": StdDevOperation(),
         }
         self.strategies.update(load_plugins())
 
@@ -32,8 +30,9 @@ class CalculatorApp:
         print(" - help: Show this menu again\n")
         print("Enter 'command operands' (e.g., 'add 1 2') to perform a calculation, or use one of the above commands.")
 
+
     def run(self):
-        print("Welcome to the Advance Calculator")
+        print("Welcome to the Advanced Calculator")
         self.display_menu()
 
         while True:
@@ -48,15 +47,28 @@ class CalculatorApp:
                     self.display_menu()
                 else:
                     parts = user_input.split()
-                    command, operands = parts[0], parts[1:]
-                    operands = list(map(float, operands))
+                    command, operands_str = parts[0], parts[1:]
                     
-                    if command in self.strategies:
-                        calculator = CalculatorContext(self.strategies[command], self.history_manager)
-                        result = calculator.execute_operation(*operands)
-                        print(f"Result: {result}")
-                    else:
+                    if command not in self.strategies:
                         print("Unknown command. Type 'help' to see available commands.")
+                        continue
+                    
+                    try:
+                        operands = list(map(float, operands_str))
+                    except ValueError:
+                        print("Error: All operands must be numeric.")
+                        continue
+                    
+                    calculator = CalculatorContext(self.strategies[command], self.history_manager)
+                    result = calculator.execute_operation(*operands)
+                    print(f"Result: {result}")
+                    
+            except ValueError as ve:
+                # Specific known errors, e.g., "Cannot divide by zero."
+                self.logger.warning(f"Operation warning: {ve}")
+                print(f"Warning: {ve}")
             except Exception as e:
-                self.logger.error(f"An error occurred: {e}")
-                print("An error occurred. Please try again.")
+                # Catch-all for unexpected errors
+                self.logger.error(f"Unexpected error occurred: {e}", exc_info=True)
+                print("An unexpected error occurred. Please try again.")
+

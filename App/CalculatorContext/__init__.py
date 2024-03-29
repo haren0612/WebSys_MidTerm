@@ -3,9 +3,9 @@ from ..utils.config import ENABLE_HISTORY_FEATURE
 
 
 class CalculatorContext:
-    def __init__(self, strategy, history_manager):
+    def __init__(self, strategy, history):
         self._strategy = strategy
-        self.history_manager = history_manager
+        self.history = history
 
     def execute_operation(self, *operands):
         # Execute the operation using the provided strategy
@@ -15,9 +15,9 @@ class CalculatorContext:
         operation_name = self._strategy.__class__.__name__
         
         # Add an entry to the history log
-        # Adjusted to match the updated add_entry method signature
-        if self.history_manager is not None:
-            self.history_manager.add_entry(operation_name, operands, result)
+        # Adjusted to match the updated add_operation method signature
+        if self.history is not None:
+            self.history.add_operation(operation_name, operands, result)
         
         return result
 

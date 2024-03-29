@@ -19,3 +19,4 @@ def setup_logging():
     )
 
     logging.info("Logging setup complete.")
+

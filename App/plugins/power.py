@@ -9,3 +9,4 @@ class Power(OperationStrategy):
         base, exponent = operands
         return base ** exponent
 
+

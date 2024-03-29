@@ -1,0 +1,10 @@
+Operation,Operands,Result
+Addition,,Result: 0
+Addition,"3.0, 4.0",Result: 7.0
+Multiplication,"4.0, 6.0",Result: 24.0
+Division,"4.0, 2.0",Result: 2.0
+MeanOperation,"2.0, 3.0, 4.0",Result: 3.0
+MedianOperation,"6.0, 7.0, 8.0",Result: 7.0
+Power,"4.0, 5.0",Result: 1024.0
+Square,56.0,Result: 3136.0
+Log,5.0,Result: 1.6094379124341003

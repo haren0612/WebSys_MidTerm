@@ -3,3 +3,31 @@
 2024-03-29 01:48:50,994 - App.utils.plugin_loader - INFO - Loaded plugin: Square
 2024-03-29 01:48:50,995 - App.utils.plugin_loader - INFO - Loaded plugin: Log
 2024-03-29 01:48:53,685 - App - INFO - Calculator app terminated.
+2024-03-29 02:07:02,004 - root - INFO - Logging setup complete.
+2024-03-29 02:07:02,037 - App.utils.plugin_loader - INFO - Loaded plugin: Power
+2024-03-29 02:07:02,039 - App.utils.plugin_loader - INFO - Loaded plugin: Square
+2024-03-29 02:07:02,040 - App.utils.plugin_loader - INFO - Loaded plugin: Log
+2024-03-29 02:07:02,041 - App - ERROR - Unexpected error occurred: list index out of range
+Traceback (most recent call last):
+  File "/home/haren0612/WebSys_MidTerm/App/__init__.py", line 50, in run
+    command, operands_str = parts[0], parts[1:]
+IndexError: list index out of range
+2024-03-29 02:10:03,600 - CalculatorApp - INFO - Performed execute: () = 0
+2024-03-29 02:10:03,600 - CalculatorApp - INFO - Performed execute: () = 0
+2024-03-29 02:10:09,448 - CalculatorApp - INFO - Performed execute: (3.0, 4.0) = 7.0
+2024-03-29 02:10:09,448 - CalculatorApp - INFO - Performed execute: (3.0, 4.0) = 7.0
+2024-03-29 02:10:34,013 - CalculatorApp - INFO - Performed execute: (4.0, 6.0) = 24.0
+2024-03-29 02:10:34,013 - CalculatorApp - INFO - Performed execute: (4.0, 6.0) = 24.0
+2024-03-29 02:10:42,313 - CalculatorApp - INFO - Performed execute: (4.0, 2.0) = 2.0
+2024-03-29 02:10:42,313 - CalculatorApp - INFO - Performed execute: (4.0, 2.0) = 2.0
+2024-03-29 02:10:47,725 - CalculatorApp - INFO - Performed execute: (2.0, 3.0, 4.0) = 3.0
+2024-03-29 02:10:47,725 - CalculatorApp - INFO - Performed execute: (2.0, 3.0, 4.0) = 3.0
+2024-03-29 02:10:55,276 - CalculatorApp - INFO - Performed execute: (6.0, 7.0, 8.0) = 7.0
+2024-03-29 02:10:55,276 - CalculatorApp - INFO - Performed execute: (6.0, 7.0, 8.0) = 7.0
+2024-03-29 02:11:12,270 - CalculatorApp - INFO - Performed execute: (4.0, 5.0) = 1024.0
+2024-03-29 02:11:12,270 - CalculatorApp - INFO - Performed execute: (4.0, 5.0) = 1024.0
+2024-03-29 02:11:18,002 - CalculatorApp - INFO - Performed execute: (56.0,) = 3136.0
+2024-03-29 02:11:18,002 - CalculatorApp - INFO - Performed execute: (56.0,) = 3136.0
+2024-03-29 02:11:22,828 - CalculatorApp - INFO - Performed execute: (5.0,) = 1.6094379124341003
+2024-03-29 02:11:22,828 - CalculatorApp - INFO - Performed execute: (5.0,) = 1.6094379124341003
+2024-03-29 02:11:25,721 - App - INFO - Calculator app terminated.

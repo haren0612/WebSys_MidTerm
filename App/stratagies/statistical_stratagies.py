@@ -21,3 +21,4 @@ class StdDevOperation(OperationStrategy):
         if len(operands) < 2:
             raise ValueError("Standard deviation requires at least two operands.")
         return stdev(operands)
+

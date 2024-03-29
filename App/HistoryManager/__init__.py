@@ -65,9 +65,12 @@ class HistoryManager:
 
     def print_history(self):
         """
-        Method to print the history dataframe.
+        Method to print the history DataFrame. Prints 'Empty history.' if the DataFrame is empty.
         """
-        print(self.history_df)
+        if self.history_df.empty:
+            print("Empty history.")
+        else:
+            print(self.history_df)
 
     def clear_history(self):
         """

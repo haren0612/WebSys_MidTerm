@@ -91,3 +91,32 @@ IndexError: list index out of range
 2024-03-29 02:35:24,836 - CalculatorApp - INFO - Performed execute: (1.0, 2.0) = 3.0
 2024-03-29 02:35:24,836 - CalculatorApp - INFO - Performed execute: (1.0, 2.0) = 3.0
 2024-03-29 02:35:56,708 - App - INFO - Calculator app terminated.
+2024-03-29 02:53:17,289 - root - INFO - Logging setup complete.
+2024-03-29 02:53:17,377 - App.utils.plugin_loader - INFO - Loaded plugin: Power
+2024-03-29 02:53:17,377 - App.utils.plugin_loader - INFO - Loaded plugin: Square
+2024-03-29 02:53:17,378 - App.utils.plugin_loader - INFO - Loaded plugin: Log
+2024-03-29 02:53:29,919 - CalculatorApp - INFO - Performed execute: (45.0, 4500.0) = 4545.0
+2024-03-29 02:53:29,919 - CalculatorApp - INFO - Performed execute: (45.0, 4500.0) = 4545.0
+2024-03-29 02:53:46,999 - CalculatorApp - INFO - Performed execute: (3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0) = 6.0
+2024-03-29 02:53:46,999 - CalculatorApp - INFO - Performed execute: (3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0) = 6.0
+2024-03-29 02:53:52,916 - App - INFO - Calculator app terminated.
+2024-03-29 02:53:56,833 - CalculatorApp - INFO - Performed execute: (1, 2) = 3
+2024-03-29 02:53:56,833 - CalculatorApp - INFO - Performed execute: (-1, -2) = -3
+2024-03-29 02:53:56,833 - CalculatorApp - INFO - Performed execute: (0, 0) = 0
+2024-03-29 02:53:56,834 - CalculatorApp - INFO - Performed execute: (5, 3) = 2
+2024-03-29 02:53:56,834 - CalculatorApp - INFO - Performed execute: (-1, -2) = 1
+2024-03-29 02:53:56,834 - CalculatorApp - INFO - Performed execute: (0, 0) = 0
+2024-03-29 02:53:56,835 - CalculatorApp - INFO - Performed execute: (2, 3) = 6
+2024-03-29 02:53:56,835 - CalculatorApp - INFO - Performed execute: (-1, -2) = 2
+2024-03-29 02:53:56,835 - CalculatorApp - INFO - Performed execute: (0, 10) = 0
+2024-03-29 02:53:56,838 - CalculatorApp - INFO - Performed execute: (6, 3) = 2.0
+2024-03-29 02:53:56,838 - CalculatorApp - INFO - Performed execute: (-4, -2) = 2.0
+2024-03-29 02:53:56,840 - CalculatorApp - ERROR - Attempted to divide by zero: Cannot divide by zero.
+2024-03-29 02:53:56,841 - CalculatorApp - ERROR - Value error in operation: All operands must be numeric.
+2024-03-29 02:53:56,842 - CalculatorApp - INFO - Performed execute: (1, 2, 3, 4, 5) = 3
+2024-03-29 02:53:56,842 - CalculatorApp - INFO - Performed execute: (1, 1, 1, 1, 1) = 1
+2024-03-29 02:53:56,843 - CalculatorApp - INFO - Performed execute: (1, 2, 3, 4, 5) = 3
+2024-03-29 02:53:56,843 - CalculatorApp - INFO - Performed execute: (1, 2, 3, 4, 5, 6) = 3.5
+2024-03-29 02:53:56,843 - CalculatorApp - INFO - Performed execute: (1, 2, 3) = 1.0
+2024-03-29 02:53:56,844 - CalculatorApp - ERROR - Value error in operation: Standard deviation requires at least two operands.
+2024-03-29 02:53:56,872 - CalculatorApp - ERROR - Value error in operation: Standard deviation requires at least two operands.

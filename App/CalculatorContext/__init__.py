@@ -8,3 +8,4 @@ class CalculatorContext:
         operation_desc = f"{self._strategy.__class__.__name__} with {operands} = {result}"
         self.history_manager.add_record(operation_desc)
         return result
+

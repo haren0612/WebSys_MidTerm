@@ -6,4 +6,3 @@ class Power(OperationStrategy):
             return "Error: power operation requires exactly two operands."
         base, exponent = operands
         return base ** exponent
-

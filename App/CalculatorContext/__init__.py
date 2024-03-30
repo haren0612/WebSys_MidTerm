@@ -29,4 +29,3 @@ class CalculatorContext:
             self.history.add_operation(operation_name, operands, result)
 
         return result
-

@@ -7,7 +7,8 @@ class Addition(OperationStrategy):
     def execute(self, *operands):
         self.validate_operands(*operands)
         return sum(operands)
-    
+
+
 class Subtraction(OperationStrategy):
     @wrapper
     def execute(self, *operands):
@@ -16,7 +17,8 @@ class Subtraction(OperationStrategy):
         for operand in operands[1:]:
             result -= operand
         return result
-    
+
+
 class Multiplication(OperationStrategy):
     @wrapper
     def execute(self, *operands):
@@ -25,6 +27,7 @@ class Multiplication(OperationStrategy):
         for operand in operands:
             result *= operand
         return result
+
 
 class Division(OperationStrategy):
     @wrapper

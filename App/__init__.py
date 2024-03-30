@@ -6,6 +6,7 @@ from .stratagies.arithmetic_stratagies import Addition, Subtraction, Multiplicat
 from .utils.plugin_loader import load_plugins
 from .utils.config import ENABLE_HISTORY_FEATURE
 
+
 class CalculatorApp:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
@@ -68,7 +69,8 @@ class CalculatorApp:
                     command, operands_str = parts[0], parts[1:]
 
                     if command not in self.strategies:
-                        print("Unknown command. Type 'help' to see available commands.")
+                        print(
+                            "Unknown command. Type 'help' to see available commands.")
                         continue
 
                     try:
@@ -77,7 +79,8 @@ class CalculatorApp:
                         print("Error: All operands must be numeric.")
                         continue
 
-                    calculator = CalculatorContext(self.strategies[command], self.history)
+                    calculator = CalculatorContext(
+                        self.strategies[command], self.history)
                     result = calculator.execute_operation(*operands)
                     print(f"Result -> {result}")
 
@@ -85,5 +88,7 @@ class CalculatorApp:
                 self.logger.warning(f"Operation warning: {ve}")
                 print(f"Warning: {ve}")
             except Exception as e:
-                self.logger.error(f"Unexpected error occurred: {e}", exc_info=True)
+                self.logger.error(
+                    f"Unexpected error occurred: {e}",
+                    exc_info=True)
                 print("An unexpected error occurred. Please try again.")

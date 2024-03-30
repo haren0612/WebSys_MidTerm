@@ -2,6 +2,7 @@ from App.utils.wrapper import wrapper
 from ..stratagies.base_strategy import OperationStrategy
 from math import log
 
+
 class Log(OperationStrategy):
     @wrapper
     def execute(self, *operands):
@@ -11,3 +12,4 @@ class Log(OperationStrategy):
             return log(operands[0])
         else:
             return log(operands[0], operands[1])
+

@@ -1,3 +1,4 @@
+import pytest
 from App.stratagies.arithmetic_stratagies import Addition, Subtraction, Division, Multiplication
 
 

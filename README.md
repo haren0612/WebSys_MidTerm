@@ -2,7 +2,7 @@
 
 # Advanced Calculator App
 
-## Video Presentation Video
+## Video Presentation Link
 https://drive.google.com/file/d/1yjmvIsOwcV9w_6AY8lpv9b_7Arm4TPYl/view?usp=drive_link
 
 ## Summary

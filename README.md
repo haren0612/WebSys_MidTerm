@@ -2,6 +2,9 @@
 
 # Advanced Calculator App
 
+## Video Presentation Video
+https://drive.google.com/file/d/1yjmvIsOwcV9w_6AY8lpv9b_7Arm4TPYl/view?usp=drive_link
+
 ## Summary
 
 Advanced Calculator App is a robust Python program for carrying out many mathematical calculations . It includes statistical analysis, fundamental math, and dynamically loaded plugins that expand capabilities. The calculator app's setup, use, and development information are described in this README file.

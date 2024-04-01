@@ -15,3 +15,10 @@ Addition,"(6.0, 7.0)",13.0
 Addition,"(56.0, 90.0)",146.0
 MedianOperation,"(5.0, 6.0, 7.0)",6.0
 Addition,"(34.0, 67.0)",101.0
+Addition,"(1.0, 2.0, 3.0, 4.0)",10.0
+Division,"(0.0, 1.0)",0.0
+Division,"(1.0, 0.0)",Error: Cannot divide by zero.
+Addition,"(1.0, 2.0, 3.0, 4.0)",10.0
+Division,"(1.0, 0.0)",Error: Cannot divide by zero.
+Addition,"(1.0, 2.0, 3.0, 4.0)",10.0
+Division,"(1.0, 0.0)",Error: Cannot divide by zero.

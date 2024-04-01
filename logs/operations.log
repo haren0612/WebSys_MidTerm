@@ -39,3 +39,32 @@ AttributeError: 'HistoryFacade' object has no attribute 'print_history'
 2024-03-29 21:03:29,151 - CalculatorApp - INFO - Performed execute: (34.0, 67.0) = 101.0
 2024-03-29 21:03:29,151 - CalculatorApp - INFO - Performed execute: (34.0, 67.0) = 101.0
 2024-03-29 21:03:31,310 - App - INFO - Calculator app terminated.
+2024-04-01 18:00:10,489 - root - INFO - Logging setup complete.
+2024-04-01 18:00:10,508 - App.utils.plugin_loader - INFO - Loaded plugin: Power
+2024-04-01 18:00:10,509 - App.utils.plugin_loader - INFO - Loaded plugin: Square
+2024-04-01 18:00:10,510 - App.utils.plugin_loader - INFO - Loaded plugin: Log
+2024-04-01 18:00:22,909 - CalculatorApp - INFO - Performed execute: (1.0, 2.0, 3.0, 4.0) = 10.0
+2024-04-01 18:00:22,909 - CalculatorApp - INFO - Performed execute: (1.0, 2.0, 3.0, 4.0) = 10.0
+2024-04-01 18:00:32,734 - CalculatorApp - INFO - Performed execute: (0.0, 1.0) = 0.0
+2024-04-01 18:00:32,734 - CalculatorApp - INFO - Performed execute: (0.0, 1.0) = 0.0
+2024-04-01 18:00:40,926 - CalculatorApp - ERROR - Attempted to divide by zero: Cannot divide by zero.
+2024-04-01 18:00:40,926 - CalculatorApp - ERROR - Attempted to divide by zero: Cannot divide by zero.
+2024-04-01 18:06:35,294 - App - INFO - Calculator app terminated.
+2024-04-01 18:07:10,532 - root - INFO - Logging setup complete.
+2024-04-01 18:07:10,559 - App.utils.plugin_loader - INFO - Loaded plugin: Power
+2024-04-01 18:07:10,559 - App.utils.plugin_loader - INFO - Loaded plugin: Square
+2024-04-01 18:07:10,559 - App.utils.plugin_loader - INFO - Loaded plugin: Log
+2024-04-01 18:07:31,879 - CalculatorApp - INFO - Performed execute: (1.0, 2.0, 3.0, 4.0) = 10.0
+2024-04-01 18:07:31,879 - CalculatorApp - INFO - Performed execute: (1.0, 2.0, 3.0, 4.0) = 10.0
+2024-04-01 18:07:36,523 - CalculatorApp - ERROR - Attempted to divide by zero: Cannot divide by zero.
+2024-04-01 18:07:36,523 - CalculatorApp - ERROR - Attempted to divide by zero: Cannot divide by zero.
+2024-04-01 18:07:43,342 - App - INFO - Calculator app terminated.
+2024-04-01 18:13:43,178 - root - INFO - Logging setup complete.
+2024-04-01 18:13:43,180 - App.utils.plugin_loader - INFO - Loaded plugin: Power
+2024-04-01 18:13:43,181 - App.utils.plugin_loader - INFO - Loaded plugin: Square
+2024-04-01 18:13:43,181 - App.utils.plugin_loader - INFO - Loaded plugin: Log
+2024-04-01 18:14:12,461 - CalculatorApp - INFO - Performed execute: (1.0, 2.0, 3.0, 4.0) = 10.0
+2024-04-01 18:14:12,461 - CalculatorApp - INFO - Performed execute: (1.0, 2.0, 3.0, 4.0) = 10.0
+2024-04-01 18:14:16,800 - CalculatorApp - ERROR - Attempted to divide by zero: Cannot divide by zero.
+2024-04-01 18:14:16,800 - CalculatorApp - ERROR - Attempted to divide by zero: Cannot divide by zero.
+2024-04-01 18:47:49,492 - App - INFO - Calculator app terminated.
